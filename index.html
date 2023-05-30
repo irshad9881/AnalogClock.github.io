@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="clockContainer">
+        <!-- <img src="img/clock1.png" alt=""> -->
+        <div id="hours"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <div class="digt"> 
+        <div class="wrapper">
+            <div class="display">
+                <div id="time">
+                    <h2>12:00:00 PM</h2> 
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        setInterval(() => {
+            const time = document.querySelector("#time")
+            let date = new Date();
+            let hr = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let day_night = "AM";
+            if (hr > 12) {
+                day_night = "PM";
+                hr = hr - 12;
+            }
+            if (hr < 10) {
+                hr = "0" + hr;
+            }
+            if (min < 10) {
+                min = "0" + min;
+            }
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+            time.textContent = hr + ":" + min + ":" + sec + " " + day_night;
+        });
+    </script>
+</body>
+
+</html>
